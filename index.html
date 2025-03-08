@@ -7,6 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700;900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="ruleta.css">
+	<script src="./js/index.js" defer></script>
+	<script src="./js/helpers.js"></script>
     <title>Amigo Secreto</title>
 </head>
 
@@ -16,12 +19,12 @@
             <h1 class="main-title">Amigo Secreto</h1>
             <img src="assets/amigo-secreto.png" alt="Imagen representativa de amigo secreto">
         </header>
-        
+   
         <section class="input-section">
             <h2 class="section-title">Digite el nombre de sus amigos</h2>
             <div class="input-wrapper">
-                <input type="text" id="amigo" class="input-name" placeholder="Escribe un nombre" required>
-                <button class="button-add" onclick="agregarAmigo()">Añadir</button>
+                <input type="text" id="amigo" class="input-name" placeholder="Escribe un nombre del amigo" required>
+                <button id="agregar" class="button-add" onclick="agregarAmigo()" disabled>Añadir</button>
             </div>
            
             <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
@@ -33,9 +36,27 @@
                     Sortear amigo
                 </button>
             </div>
+            
         </section>
-    </main>
+    </main> <br/><br/> <br/> <br/> <br/> <br/> <br/> 
+    <main class="main-content">
+        <div id="container">
 
+            <!-- Marcador -->
+            <div id="marcador">
+                <div id="cartelGanador">
+                    <p id="ganadorTexto">¡Click en "Girar" para iniciar!</p>
+                </div>
+            </div>
+    
+            <!-- Ruleta -->
+            <div id="ruleta">
+                <!-- <img src="./img/transportador.png" alt=""> -->
+                <div id="sortear"><p>GIRAR</p></div>
+            </div>
+        </div>
+    </main>
+    
     <script src="app.js" defer></script>
 </body>
 </html>

@@ -1,19 +1,46 @@
 let amigos = [];
+const  nombreAmigo = document.getElementById("amigo");
+const agregarButton = document.getElementById("agregar");
+
+nombreAmigo.addEventListener("keyup", (e) => {
+  agregarButton.disabled   = (e.target.value.length) ? false : true;
+  e.target.value =  e.target.value.toUpperCase()
+});
+
+agregarButton.addEventListener("click", () => {
+  nombreAmigo.value = "";
+});
+
+
 
 /**
  * Agrega un nuevo amigo al array de amigos.
  * Valida que el nombre no esté vacío antes de agregarlo y actualiza la lista visual.
  */
 function agregarAmigo() {
-  let nombreAmigo = document.getElementById("amigo").value;
+  const amigoNuevo = nombreAmigo.value
 
-  if (nombreAmigo.trim() === "") {
+  if (amigoNuevo.trim() === "") {
     alert("Inserte un nombre válidao");
+  } else if (existeAmigo(amigoNuevo)){
+    alert("El nombre ya existe");
   } else {
-    amigos.push(nombreAmigo);
+    amigos.push(amigoNuevo);
     document.querySelector("#amigo").value = "";
     mostrarListaAmigo();
   }
+}
+
+/**
+ * busca si el nombre agregado esta en la lista 
+ */
+function existeAmigo(amigoNuevo){
+  for (let index = 0; index < amigos.length; index++) {
+    const element = amigos[index];
+    if(element == amigoNuevo)
+      return true
+  }
+  return false
 }
 
 /**
